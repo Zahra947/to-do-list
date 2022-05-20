@@ -3,12 +3,18 @@ import { Button } from "@material-ui/core";
 import { FormControl, InputLabel, Input } from "@material-ui/core";
 import "./styles.css";
 import Todo from "./Todo";
+import db from "./firebase";
 
 export default function App() {
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState("");
-
-  useEffect(() => {}, []); //[}this make app loads once
+  //we now listen to the db from firebase
+  useEffect(() => {
+    //this code fires when app.js loads
+    db.collection("todo").onSnapshot((snapshot) => {
+      setTodos(snapshot.docs.map((doc) => doc.data().todo));
+    });
+  }, []); //[}this make app loads once
 
   const addTodo = (event) => {
     //we want to keep what we have, append new tems to the array
