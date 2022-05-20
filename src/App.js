@@ -19,6 +19,9 @@ export default function App() {
   const addTodo = (event) => {
     //we want to keep what we have, append new tems to the array
     event.preventDefault();
+    db.collection("todos").add({
+      todo: input
+    });
     setTodos([...todos, input]);
     setInput(""); //this clears input bar each time after adding
   };
