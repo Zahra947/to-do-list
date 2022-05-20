@@ -1,9 +1,12 @@
 import React from "react";
+import { List, ListItem, ListItemText } from "@material-ui/core";
 
 export function Todo(props) {
   return (
-    <div>
-      <li>{props.text}</li>
-    </div>
+    <List>
+      <ListItem>
+        <ListItemText primary="todo" secondary={props.text} />
+      </ListItem>
+    </List>
   );
 }
