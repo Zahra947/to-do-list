@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "@material-ui/core";
 import { FormControl, InputLabel, Input } from "@material-ui/core";
 import "./styles.css";
@@ -7,6 +7,8 @@ import Todo from "./Todo";
 export default function App() {
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState("");
+
+  useEffect(() => {}, []); //[}this make app loads once
 
   const addTodo = (event) => {
     //we want to keep what we have, append new tems to the array
