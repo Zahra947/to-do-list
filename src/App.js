@@ -3,6 +3,7 @@ import { Button } from "@material-ui/core";
 import { FormControl, InputLabel, Input } from "@material-ui/core";
 import "./styles.css";
 import Todo from "./Todo";
+import firebase from "./firebase";
 import db from "./firebase";
 
 export default function App() {
@@ -20,7 +21,8 @@ export default function App() {
     //we want to keep what we have, append new tems to the array
     event.preventDefault();
     db.collection("todos").add({
-      todo: input
+      todo: input,
+      timestamp: firebase.firestore.FieldValue.Servertimestamp() //this gets data based on the firebase's server time
     });
     setTodos([...todos, input]);
     setInput(""); //this clears input bar each time after adding
