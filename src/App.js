@@ -12,9 +12,11 @@ export default function App() {
   //we now listen to the db from firebase
   useEffect(() => {
     //this code fires when app.js loads
-    db.collection("todo").onSnapshot((snapshot) => {
-      setTodos(snapshot.docs.map((doc) => doc.data().todo));
-    });
+    db.collection("todo")
+      .orderBy("timestam", "desc")
+      .onSnapshot((snapshot) => {
+        setTodos(snapshot.docs.map((doc) => doc.data().todo));
+      });
   }, []); //[}this make app loads once
 
   const addTodo = (event) => {
