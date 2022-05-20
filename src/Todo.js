@@ -5,7 +5,7 @@ export function Todo(props) {
   return (
     <List>
       <ListItem>
-        <ListItemText primary="todo" secondary={props.text} />
+        <ListItemText primary={props.text} />
       </ListItem>
     </List>
   );
