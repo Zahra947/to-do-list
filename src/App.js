@@ -12,8 +12,17 @@ export default function App() {
   return (
     <div className="App">
       <h1>ToDo App</h1>
-      <input value={input} onChange={(event) => setInput(event.target.value)} />
-      <button onClick={addTodo}>Add ToDo</button>
+      <form>
+        {" "}
+        <input
+          value={input}
+          onChange={(event) => setInput(event.target.value)}
+        />
+        <button type="submit" onClick={addTodo}>
+          Add ToDo
+        </button>
+      </form>
+
       <ul>
         {todos.map((todo) => (
           <li>{todo}</li>
