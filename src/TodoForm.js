@@ -5,7 +5,7 @@ import { InputLabel } from "@material-ui/core";
 import { Input } from "@material-ui/core";
 import "./TodoForm.css";
 
-export function TodoForm(props) {
+export default function TodoForm(props) {
   const [input, setInput] = useState("");
 
   const handleChange = (event) => {
