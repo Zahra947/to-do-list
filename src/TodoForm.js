@@ -20,8 +20,8 @@ export function TodoForm(props) {
     });
 
     return (
-      <form onSubmit={handleSubmit}>
-        <FormControl>
+      <form>
+        <FormControl onSubmit={handleSubmit}>
           <InputLabel>Write a todo</InputLabel>
           <Input value={input} onChange={handleChange} />
         </FormControl>
