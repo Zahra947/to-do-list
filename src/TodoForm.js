@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Button } from "@material-ui/core";
 import { FormControl } from "@material-ui/core";
 import { InputLabel } from "@material-ui/core";
@@ -7,6 +7,12 @@ import "./TodoForm.css";
 
 export default function TodoForm(props) {
   const [input, setInput] = useState("");
+
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current.focus();
+  });
 
   const handleChange = (event) => {
     setInput(event.target.value);
@@ -23,7 +29,7 @@ export default function TodoForm(props) {
       <form>
         <FormControl onSubmit={handleSubmit}>
           <InputLabel>Write a todo</InputLabel>
-          <Input value={input} onChange={handleChange} />
+          <Input value={input} onChange={handleChange} ref={inputRef} />
         </FormControl>
         <Button
           disabled={!input}
