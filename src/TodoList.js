@@ -39,7 +39,12 @@ export default function TodoList() {
   return (
     <div>
       <TodoForm onSubmit={addTodo} />
-      <Todo todos={todos} completeTodo={completeTodo} removeTodo={removeTodo} />
+      <Todo
+        todos={todos}
+        completeTodo={completeTodo}
+        removeTodo={removeTodo}
+        updatedTodo={updatedTodo}
+      />
     </div>
   );
 }

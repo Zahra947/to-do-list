@@ -1,13 +1,25 @@
 import React, { useState } from "react";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import CloseIcon from "@material-ui/icons/Close";
-//import TodoForm from "./TodoForm";
+import TodoForm from "./TodoForm";
 
-export default function Todo({ todo, completeTodo, removeTodo }) {
+export default function Todo({ todo, completeTodo, removeTodo, updateTodo }) {
   const [edit, setEdit] = useState({
     id: null,
     value: ""
   });
+
+  const submitUpdate = (value) => {
+    updateTodo(edit.id, value);
+    setEdit({
+      id: null,
+      value: ""
+    });
+  };
+
+  if (edit.id) {
+    return <TodoForm edit={edit} onSubmit={submitUpdate} />;
+  }
   return todo.map((todo, index) => (
     <div
       className={todo.isComplete ? "todo-row complete" : "todo-row"}
