@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CheckCircleIcon from "@material-ui/icons/CheckCircle";
+import EditIcon from "@material-ui/icons/Edit";
 import CloseIcon from "@material-ui/icons/Close";
 import TodoForm from "./TodoForm";
 
@@ -29,9 +29,7 @@ export default function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
         {todo.text}
       </div>
       <div>
-        <CheckCircleIcon
-          onClick={() => setEdit({ id: todo.id, value: todo.text })}
-        />
+        <EditIcon onClick={() => setEdit({ id: todo.id, value: todo.text })} />
         <CloseIcon onClick={() => removeTodo(todo.id)} />
       </div>
     </div>
