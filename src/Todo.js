@@ -29,8 +29,10 @@ export default function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
         {todo.text}
       </div>
       <div>
-        <CheckCircleIcon onClick={() => removeTodo(todo.id)} />
-        <CloseIcon onClick={() => setEdit({ id: todo.id, value: todo.text })} />
+        <CheckCircleIcon
+          onClick={() => setEdit({ id: todo.id, value: todo.text })}
+        />
+        <CloseIcon onClick={() => removeTodo(todo.id)} />
       </div>
     </div>
   ));

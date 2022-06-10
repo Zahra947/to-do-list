@@ -6,7 +6,7 @@ import { Input } from "@material-ui/core";
 import "./TodoForm.css";
 
 export default function TodoForm(props) {
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState(props.edit ? props.edit.value : "");
 
   const inputRef = useRef(null);
 

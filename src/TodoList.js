@@ -13,7 +13,7 @@ export default function TodoList() {
     setTodos(newTodos);
   };
 
-  const updatedTodo = (todoId, newValue) => {
+  const updateTodo = (todoId, newValue) => {
     if (!newValue.text || /^\s*$/.test(newValue.text)) {
       return;
     }
@@ -43,7 +43,7 @@ export default function TodoList() {
         todos={todos}
         completeTodo={completeTodo}
         removeTodo={removeTodo}
-        updatedTodo={updatedTodo}
+        updateTodo={updateTodo}
       />
     </div>
   );
