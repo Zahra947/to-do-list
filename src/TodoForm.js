@@ -20,27 +20,29 @@ export default function TodoForm(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
     props.onSubmit({
       id: Math.floor(Math.random() * 10000), //generates random id
       text: input
     });
-
-    return (
-      <form>
-        <FormControl onSubmit={handleSubmit}>
-          <InputLabel>Write a todo</InputLabel>
-          <Input value={input} onChange={handleChange} ref={inputRef} />
-        </FormControl>
-        <Button
-          disabled={!input}
-          type="submit"
-          //onClick={handleClick}
-          variant="contained"
-          color="primary"
-        >
-          Add ToDo
-        </Button>
-      </form>
-    );
+    setInput("");
   };
+
+  return (
+    <form>
+      <FormControl onSubmit={handleSubmit}>
+        <InputLabel>Write a todo</InputLabel>
+        <Input value={input} onChange={handleChange} ref={inputRef} />
+      </FormControl>
+      <Button
+        disabled={!input}
+        type="submit"
+        onClick={handleSubmit}
+        variant="contained"
+        color="primary"
+      >
+        Add ToDo
+      </Button>
+    </form>
+  );
 }
