@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import EditIcon from "@material-ui/icons/Edit";
 import CloseIcon from "@material-ui/icons/Close";
 import TodoForm from "./TodoForm";
+import "./App.css";
 
 export default function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
   const [edit, setEdit] = useState({

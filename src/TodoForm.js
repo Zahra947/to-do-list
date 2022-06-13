@@ -3,7 +3,7 @@ import { Button } from "@material-ui/core";
 import { FormControl } from "@material-ui/core";
 import { InputLabel } from "@material-ui/core";
 import { Input } from "@material-ui/core";
-import "./TodoForm.css";
+import "./App.css";
 
 export default function TodoForm(props) {
   const [input, setInput] = useState(props.edit ? props.edit.value : "");
