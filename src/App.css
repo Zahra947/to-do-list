@@ -8,13 +8,11 @@
 
 body {
   background: #005792;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
   text-align: center;
 }
 .todo-app {
   display: flex;
+  box-sizing: border-box;
   flex-direction: column;
   justify-content: start;
   width: 520px;
@@ -44,7 +42,7 @@ h1 {
 .todo-input {
   padding: 14px 32px 14px 16px;
   border-radius: 4px 0 0 4px;
-  border: 2px solid #5d0cff;
+  border: 2px solid;
   outline: none;
   width: 320px;
   background: transparent;
@@ -67,15 +65,11 @@ h1 {
 }
 
 .todo-input.edit {
-  border: 2px solid #149fff;
+  border: 2px solid #00bbf0;
 }
 
 .todo-button.edit {
-  background: linear-gradient(
-    90deg,
-    rgba(20, 159, 255, 1) 0%,
-    rgba(17, 122, 255, 1) 100%
-  );
+  background: #00bbf0;
   padding: 16px 22px;
 }
 
@@ -98,7 +92,7 @@ h1 {
 }
 
 .todo-row:nth-child(4n + 1) {
-  background: #00bbf0;
+  background: #fdb44b;
 }
 
 .icons {

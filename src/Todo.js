@@ -29,9 +29,12 @@ export default function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
       <div key={todo.id} onClick={() => completeTodo(todo.id)}>
         {todo.text}
       </div>
-      <div>
-        <EditIcon onClick={() => setEdit({ id: todo.id, value: todo.text })} />
-        <CloseIcon onClick={() => removeTodo(todo.id)} />
+      <div className="icons">
+        <EditIcon
+          className="edit-icon"
+          onClick={() => setEdit({ id: todo.id, value: todo.text })}
+        />
+        <CloseIcon className="delet-icon" onClick={() => removeTodo(todo.id)} />
       </div>
     </div>
   ));
