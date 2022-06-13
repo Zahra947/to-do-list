@@ -32,7 +32,7 @@ export default function TodoForm(props) {
             placeholder="Update your item"
             value={input}
             onChange={handleChange}
-            name="text"
+            type="text"
             ref={inputRef}
             className="col-sm-8 todo-input edit"
           />
@@ -46,7 +46,7 @@ export default function TodoForm(props) {
             placeholder="Add a todo"
             value={input}
             onChange={handleChange}
-            name="text"
+            type="text"
             className="col-sm-8 todo-input"
             ref={inputRef}
           />
