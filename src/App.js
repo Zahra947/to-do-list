@@ -4,8 +4,10 @@ import "./App.css";
 
 export default function App() {
   return (
-    <div className="todo-app">
-      <TodoList />
+    <div className="container">
+      <div className="todo-app">
+        <TodoList />
+      </div>
     </div>
   );
 }

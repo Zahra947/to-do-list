@@ -25,7 +25,7 @@ export default function TodoForm(props) {
   };
 
   return (
-    <form>
+    <form className="d-row">
       {props.edit ? (
         <>
           <input
@@ -34,9 +34,9 @@ export default function TodoForm(props) {
             onChange={handleChange}
             name="text"
             ref={inputRef}
-            className="todo-input edit"
+            className="col-sm-8 todo-input edit"
           />
-          <button onClick={handleSubmit} className="todo-button edit">
+          <button onClick={handleSubmit} className="col-sm-4 todo-button edit">
             Update
           </button>
         </>
@@ -47,10 +47,10 @@ export default function TodoForm(props) {
             value={input}
             onChange={handleChange}
             name="text"
-            className="todo-input"
+            className="col-sm-8 todo-input"
             ref={inputRef}
           />
-          <button onClick={handleSubmit} className="todo-button">
+          <button onClick={handleSubmit} className="col-sm-4 todo-button">
             Add todo
           </button>
         </>
