@@ -1,8 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Button } from "@material-ui/core";
-import { FormControl } from "@material-ui/core";
-import { InputLabel } from "@material-ui/core";
-import { Input } from "@material-ui/core";
 import "./App.css";
 
 export default function TodoForm(props) {
@@ -30,19 +26,35 @@ export default function TodoForm(props) {
 
   return (
     <form>
-      <FormControl onSubmit={handleSubmit}>
-        <InputLabel>Write a todo</InputLabel>
-        <Input value={input} onChange={handleChange} ref={inputRef} />
-      </FormControl>
-      <Button
-        disabled={!input}
-        type="submit"
-        onClick={handleSubmit}
-        variant="contained"
-        color="primary"
-      >
-        Add ToDo
-      </Button>
+      {props.edit ? (
+        <>
+          <input
+            placeholder="Update your item"
+            value={input}
+            onChange={handleChange}
+            name="text"
+            ref={inputRef}
+            className="todo-input edit"
+          />
+          <button onClick={handleSubmit} className="todo-button edit">
+            Update
+          </button>
+        </>
+      ) : (
+        <>
+          <input
+            placeholder="Add a todo"
+            value={input}
+            onChange={handleChange}
+            name="text"
+            className="todo-input"
+            ref={inputRef}
+          />
+          <button onClick={handleSubmit} className="todo-button">
+            Add todo
+          </button>
+        </>
+      )}
     </form>
   );
 }
