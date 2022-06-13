@@ -8,7 +8,6 @@
 
 body {
   background: #005792;
-  text-align: center;
 }
 .todo-app {
   display: flex;
