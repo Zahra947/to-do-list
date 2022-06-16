@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import EditIcon from "@material-ui/icons/Edit";
-import CloseIcon from "@material-ui/icons/Close";
+import { RiCloseCircleLine } from "react-icons/ri";
+import { TiEdit } from "react-icons/ti";
 import TodoForm from "./TodoForm";
 import "./App.css";
 
@@ -30,11 +30,14 @@ export default function Todo({ todos, completeTodo, removeTodo, updateTodo }) {
         {todo.text}
       </div>
       <div className="icons">
-        <EditIcon
+        <TiEdit
           className="edit-icon"
           onClick={() => setEdit({ id: todo.id, value: todo.text })}
         />
-        <CloseIcon className="delet-icon" onClick={() => removeTodo(todo.id)} />
+        <RiCloseCircleLine
+          className="delet-icon"
+          onClick={() => removeTodo(todo.id)}
+        />
       </div>
     </div>
   ));
