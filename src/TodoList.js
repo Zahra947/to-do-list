@@ -9,7 +9,7 @@ export default function TodoList() {
   const addTodo = (todo) => {
     if (!todo.text || /^\s*$/.test(todo.text)) {
       return;
-      {/* explaining of the second expression: ^: the beginning of the line of data, 
+      {/* explaining of the second expression (regex): ^: the beginning of the line of data, 
         $ :followed by the end of the line of data
         \s: stands for whitespace character
         * : 0 or more of the charachter before *
