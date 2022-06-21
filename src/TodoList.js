@@ -16,7 +16,7 @@ export default function TodoList() {
         /EXPRESSION /: // means does the expression mathches with
         /^\s*$/.test(val): uses RegExp test method to test whether a string val is empty or only contains spaces*/}
     }
-    const newTodos = [todo, ...todos];
+    const newTodos = [todo, ...todos]; {/*[query, ...searches] to prepend an item to the front of the array */}
     setTodos(newTodos);
   };
 
