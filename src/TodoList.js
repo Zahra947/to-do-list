@@ -1,22 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TodoForm from "./TodoForm";
 import Todo from "./Todo";
 import "./App.css";
 
 export default function TodoList() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(() => {
+    const localData = localStorage.getItem("todos");
+    return localData ? JSON.parse(localData) : [];
+  });
+
+  /*local storage*/
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
 
   const addTodo = (todo) => {
     if (!todo.text || /^\s*$/.test(todo.text)) {
       return;
-      {/* explaining of the second expression (regex): ^: the beginning of the line of data, 
+      /* explaining of the second expression (regex): ^: the beginning of the line of data, 
         $ :followed by the end of the line of data
         \s: stands for whitespace character
         * : 0 or more of the charachter before *
         /EXPRESSION /: // means does the expression mathches with
-        /^\s*$/.test(val): uses RegExp test method to test whether a string val is empty or only contains spaces*/}
+        /^\s*$/.test(val): uses RegExp test method to test whether a string val is empty or only contains spaces*/
     }
-    const newTodos = [todo, ...todos]; {/*[query, ...searches] to prepend an item to the front of the array */}
+    const newTodos = [todo, ...todos];
+    /*[query, ...searches] to prepend an item to the front of the array */
     setTodos(newTodos);
   };
 
@@ -46,7 +55,8 @@ export default function TodoList() {
   return (
     <div>
       <h1>What's the Plan for Today?</h1>
-      <TodoForm onSubmit={addTodo} />{/*the function is defined in parent component(here) and like a prop will be used in child component */}
+      <TodoForm onSubmit={addTodo} />
+      {/*the function is defined in parent component(here) and like a prop will be used in child component */}
       <Todo
         todos={todos}
         completeTodo={completeTodo}
